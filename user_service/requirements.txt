@@ -1,0 +1,6 @@
+Flask
+Flask-Bcrypt
+Flask-JWT-Extended
+Flask-SQLAlchemy
+psycopg2
+flask-swagger

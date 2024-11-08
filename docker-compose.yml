@@ -1,0 +1,39 @@
+version: '3'
+services:
+  user_service:
+    build:
+      context: .
+      dockerfile: ./user_service/Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - app-network
+
+  product_service:
+    build:
+      context: .
+      dockerfile: ./product_service/Dockerfile
+    ports:
+      - "5002:5002"
+    networks:
+      - app-network
+
+  cart_service:
+    build:
+      context: .
+      dockerfile: ./cart_service/Dockerfile
+    ports:
+      - "5003:5003"
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
